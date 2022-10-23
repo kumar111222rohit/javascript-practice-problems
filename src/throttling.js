@@ -10,13 +10,13 @@ const loggerFunction=()=>{
 }
 
 //lets throttle
-const throttle =function(argFunction, limit){
+const throttle =function(myFunction, limit){
     let flag=true;// making a closure
     return function(){
         let context= this;
         let args= arguments;
         if (flag){
-            argFunction.apply(context,args)
+            argFumyFunctionnction.apply(context,args)
             flag=false;
         }
         setTimeout(()=>{
