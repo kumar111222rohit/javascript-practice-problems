@@ -118,18 +118,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
-//polyfill for bind
-// bind returns a function and doesnt calls it.
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+// //polyfill for bind
+// // bind returns a function and doesnt calls it.
 
-var name = {
+var name1 = {
   firstName: "rohit",
   lastName: "kumar"
 };
-var printName = function printName() {
-  console.log(this.firstName + this.lastName);
+var printName = function printName(a, b, c) {
+  console.log(this.firstName + " " + this.lastName + a + b);
 };
-var printMyName = printName.bind(name);
-printMyName();
+var printMyName = printName.bind(name1);
+// printMyName("arg1","arg2");
+
+//own bind method
+Function.prototype.myBindMethod = function () {
+  for (var _len = arguments.length, arg1 = new Array(_len), _key = 0; _key < _len; _key++) {
+    arg1[_key] = arguments[_key];
+  }
+  var obj = this;
+  var param = arg1.slice(1);
+  return function () {
+    for (var _len2 = arguments.length, arg2 = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      arg2[_key2] = arguments[_key2];
+    }
+    obj.apply(arg1[0], [].concat(_toConsumableArray(param), arg2));
+  };
+};
+var myPrintName = printMyName.myBindMethod(name1, [" arg1", " myarg1", "myanother arg1"]);
+myPrintName([" arg2", " myarg2", " myanother arg2"]);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
