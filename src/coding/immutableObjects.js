@@ -3,8 +3,8 @@
 // other objects cant alter the value in it.
 let getPtivateObj=function (){
     let privateObj={
-        firstName="abc",
-        lastName="xyz",
+        firstName:"abc",
+        lastName:"xyz",
     }
      
     return function(){
