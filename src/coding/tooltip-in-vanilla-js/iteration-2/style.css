@@ -1,0 +1,21 @@
+/* Add your css styles here */
+*{
+    box-sizing: border-box;
+}
+h3{
+    text-align: center;
+    
+}
+li{
+    color: blue;
+}
+.div-tooltip{
+    opacity: 1;
+    background-color: grey;
+    padding:  2px 4px;
+    margin: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:9999;
+}
