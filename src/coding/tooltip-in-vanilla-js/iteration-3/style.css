@@ -1,0 +1,26 @@
+/* Add your css styles here */
+*{
+    box-sizing: border-box;
+}
+li{
+    color:blue;
+}
+li:last-child{
+    position:fixed;
+    bottom:0;
+}
+h3{
+    text-align: center;
+}
+
+.div-tooltip{
+    opacity: 1;
+    background:grey;
+    color:black;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 2px 4px;
+    margin: 2px;
+    z-index: 9999;
+}
