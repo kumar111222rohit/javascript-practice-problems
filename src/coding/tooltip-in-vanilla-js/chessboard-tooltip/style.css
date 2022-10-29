@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+.root{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    height: 256px;
+    width: 256px;
+    border: 1px solid black;
+    padding: 4px;
+    float: right;
+    justify-content: flex-end;
+}
+.box{
+    height: 60px;
+    width:60px;
+    background: grey;
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+}
+.changeColor{
+    background: yellow;
+}
+.div-tooltip{
+    width: auto;
+    height: auto;
+    opacity: 1;
+    background:black;
+    color:white;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 2px 4px;
+    margin: 2px;
+    z-index: 9999;
+}
