@@ -14,16 +14,12 @@ Function.prototype.myApply = function (thisContext, args = []) {
   delete symbol;
   return returnValue;
 };
-Function.prototype.myBind = function (thisContext, ...args) {
-  const symbol = new Symbol();
-  thisContext[symbol] = this;
-
-  const returnFunc = function (...newArgs) {
-    return thisContext[symbol](...args, ...newArgs);
+Function.prototype.myBindMethod = function (...arg1) {
+  let obj = this;
+  let param = arg1.slice(1);
+  return function (...arg2) {
+    obj.apply(arg1[0], [...param, ...arg2]);
   };
-
-  delete symbol;
-  return returnFunc;
 };
 
 let person = {
